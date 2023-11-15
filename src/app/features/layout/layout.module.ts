@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutRootComponent } from './containers/layout-root/layout-root.component';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { LayoutRootComponent } from './containers/layout-root/layout-root.compon
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    IonicModule
   ]
 })
 export class LayoutModule { }
