@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-root.component.css'],
 })
 export class HomeRootComponent {
+  userType = 'client'
   userName = 'John Doe';
   appointments = [
     {
