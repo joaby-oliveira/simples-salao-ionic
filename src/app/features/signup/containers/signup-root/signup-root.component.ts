@@ -9,21 +9,21 @@ import { matchValidator } from '../../validators/matchValidator';
 export class SignupRootComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.signupForm.valueChanges.subscribe((value) =>
-      console.log(this.signupForm.errors)
-    );
-  }
+  ngOnInit(): void {}
 
   matchValidator = matchValidator;
 
   signupForm = this.formBuilder.group(
     {
-      email: ['', Validators.required, Validators.email],
-      password: ['', Validators.required, Validators.minLength(8)],
-      confirmPassword: ['', Validators.required, Validators.minLength(8)],
-      name: ['', Validators.required, Validators.minLength(3)],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
     },
     { validators: [this.matchValidator('password', 'confirmPassword')] }
   );
+
+  signup() {
+    console.log(this.signupForm.value);
+  }
 }
