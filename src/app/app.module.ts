@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { LoginModule } from './features/login/login.module';
 import { SignupModule } from './features/signup/signup.module';
+import { StartModule } from './features/start/start.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SignupModule } from './features/signup/signup.module';
     IonicModule.forRoot(),
     LoginModule,
     SignupModule,
+    StartModule,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -26,6 +28,11 @@ import { SignupModule } from './features/signup/signup.module';
         loadChildren: () =>
           import('./features/signup/signup.module').then((m) => m.SignupModule),
       },
+      {
+        path: 'inicio',
+        loadChildren: () =>
+          import('./features/start/start.module').then((m) => m.StartModule),
+      }
     ]),
   ],
   providers: [],
