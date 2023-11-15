@@ -3,8 +3,14 @@
     <app-form-header></app-form-header>
     <form [formGroup]="signupForm">
       <ion-item lines="full">
-        <ion-select label="Tipo de conta" placeholder="Você é um:" formControlName="userType">
-          <ion-select-option value="professional">Profissional</ion-select-option>
+        <ion-select
+          label="Tipo de conta"
+          placeholder="Você é um:"
+          formControlName="userType"
+        >
+          <ion-select-option value="professional"
+            >Profissional</ion-select-option
+          >
           <ion-select-option value="client">Cliente</ion-select-option>
         </ion-select>
       </ion-item>
@@ -53,5 +59,9 @@
       </span>
       <ion-button (click)="signup()" expand="full"> Criar conta </ion-button>
     </form>
+    <p class="text-center mt-16">Já é registrado?</p>
+    <ion-button routerLink="/login" expand="block" fill="clear">
+      Fazer login
+    </ion-button>
   </main>
 </ion-content>
