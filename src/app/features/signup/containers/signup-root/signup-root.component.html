@@ -3,6 +3,12 @@
     <app-form-header></app-form-header>
     <form [formGroup]="signupForm">
       <ion-item lines="full">
+        <ion-select label="Tipo de conta" placeholder="Você é um:" formControlName="userType">
+          <ion-select-option value="professional">Profissional</ion-select-option>
+          <ion-select-option value="client">Cliente</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item lines="full">
         <ion-input
           formControlName="name"
           type="text"

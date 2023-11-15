@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { matchValidator } from '../../validators/matchValidator';
+import { Observable } from 'rxjs';
 
 @Component({
   templateUrl: './signup-root.component.html',
@@ -12,6 +13,7 @@ export class SignupRootComponent implements OnInit {
   ngOnInit(): void {}
 
   matchValidator = matchValidator;
+  $userType = new Observable();
 
   signupForm = this.formBuilder.group(
     {
@@ -19,6 +21,7 @@ export class SignupRootComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
+      userType: ['client', Validators.required],
     },
     { validators: [this.matchValidator('password', 'confirmPassword')] }
   );
