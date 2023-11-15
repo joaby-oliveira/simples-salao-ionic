@@ -2,23 +2,32 @@
   <main class="p-8">
     <app-form-header></app-form-header>
     <form (ngSubmit)="login()" [formGroup]="loginForm">
-      <ion-item>
-        <ion-label>E-mail</ion-label>
-        <ion-input type="email" name="email" formControlName="email"></ion-input>
+      <ion-item lines="full">
+        <ion-input
+          type="email"
+          name="email"
+          formControlName="email"
+          label="E-mail"
+          labelPlacement="floating"
+        ></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label>Senha</ion-label>
-        <ion-input type="password" name="password" formControlName="password"></ion-input>
+      <ion-item lines="full">
+        <ion-input
+          type="password"
+          name="password"
+          formControlName="password"
+          label="Senha"
+          labelPlacement="floating"
+        ></ion-input>
       </ion-item>
       <ion-button expand="full" type="submit">Login</ion-button>
     </form>
     <p class="text-center mt-4">
-      Esqueceu a senha? <a routerLink="" class="underline font-bold">Redefinir senha</a>
+      Esqueceu a senha?
+      <a routerLink="" class="underline font-bold">Redefinir senha</a>
     </p>
-    <p class="text-center mt-16">
-      Ainda não é registrado?
-    </p>
-    <ion-button href="criar-conta" expand="block" fill="clear">
+    <p class="text-center mt-16">Ainda não é registrado?</p>
+    <ion-button routerLink="/criar-conta" expand="block" fill="clear">
       Criar conta
     </ion-button>
   </main>
