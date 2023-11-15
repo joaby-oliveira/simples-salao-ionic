@@ -1,0 +1,10 @@
+<ul *ngIf="professionals.length > 0; else notFound" class="flex gap-4">
+  <li
+    class="flex justify-center items-center shadow-lg shadow-purple-200 border-purple-400 border text-yellow-950 text-center text-xs w-16 h-16 rounded-full"
+    *ngFor="let professional of professionals"
+  >
+    {{ professional }}
+  </li>
+</ul>
+
+<ng-template #notFound> Nenhum profissional encontrado </ng-template>

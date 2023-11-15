@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 export class HomeRootComponent {
   userType = 'client'
   userName = 'John Doe';
+  professionals = [
+    'Cláudio Junior',
+    'Emilly Mota',
+    'Robson Martins',
+  ]
   appointments = [
     {
       serviceName: 'Corte de cabelo',

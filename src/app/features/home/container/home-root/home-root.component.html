@@ -16,11 +16,9 @@
     <ion-card class="mt-8 shadow-xl p-4">
       <ion-card-subtitle>Agendar com profissionais</ion-card-subtitle>
       <ion-card-content>
-        <span
-          class="flex justify-center items-center shadow-lg shadow-purple-200 border-purple-400 border text-yellow-950 text-center text-xs w-16 h-16 rounded-full"
-        >
-          Claudio Júnior
-        </span>
+        <app-professionals-list
+          [professionals]="professionals"
+        ></app-professionals-list>
       </ion-card-content>
     </ion-card>
     <ion-card class="mt-8 shadow-xl p-4">
