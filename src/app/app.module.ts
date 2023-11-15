@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { LoginModule } from './features/login/login.module';
+import { SignupModule } from './features/signup/signup.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,11 +14,17 @@ import { LoginModule } from './features/login/login.module';
     BrowserModule,
     IonicModule.forRoot(),
     LoginModule,
+    SignupModule,
     RouterModule.forRoot([
       {
         path: 'login',
         loadChildren: () =>
           import('./features/login/login.module').then((m) => m.LoginModule),
+      },
+      {
+        path: 'criar-conta',
+        loadChildren: () =>
+          import('./features/signup/signup.module').then((m) => m.SignupModule),
       },
     ]),
   ],

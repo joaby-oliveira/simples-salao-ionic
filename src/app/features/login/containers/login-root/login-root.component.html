@@ -1,16 +1,6 @@
 <ion-content>
   <main class="p-8">
-    <img
-      src="/assets/logo.png"
-      alt="Welcome back!"
-      width="100"
-      class="mx-auto"
-    />
-    <h1 class="text-center text-xl mt-8">Bem-vindo de volta</h1>
-    <h2 class="text-center text-base font-normal mt-4">
-      Volte a agendar seus serviços!
-    </h2>
-
+    <app-form-header></app-form-header>
     <form (ngSubmit)="login()" [formGroup]="loginForm">
       <ion-item>
         <ion-label>E-mail</ion-label>
@@ -28,7 +18,7 @@
     <p class="text-center mt-16">
       Ainda não é registrado?
     </p>
-    <ion-button href="create-account" expand="block" fill="clear">
+    <ion-button href="criar-conta" expand="block" fill="clear">
       Criar conta
     </ion-button>
   </main>
