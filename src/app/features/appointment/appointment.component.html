@@ -1,0 +1,41 @@
+<ion-content>
+  <main class="p-8">
+    <form [formGroup]="filterForm">
+      <ion-item>
+        <ion-label>Profissional</ion-label>
+        <ion-select
+          placeholder="Selecione um profissional"
+          formControlName="professional"
+        >
+          <ion-select-option
+            *ngFor="let professional of professionals"
+            [value]="professional.idProfessional"
+            >{{ professional.name }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </form>
+    <div *ngIf="!filterForm.controls.professional.value">
+      <div class="flex flex-col items-center justify-center p-8 gap-4">
+        <h2>Selecione um profissional</h2>
+        <img
+          src="/assets/select-professional.svg"
+          alt="Selecione um profissional"
+        />
+      </div>
+    </div>
+    <ion-card class="mt-8 shadow-xl p-4">
+      <ion-card-subtitle>Próximos agendamentos</ion-card-subtitle>
+      <ion-list>
+        <ion-item *ngFor="let appointment of appointments">
+          <ion-icon name="calendar-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h2>{{ appointment.serviceName }}</h2>
+            <p>Preço: {{ appointment.price | currency : "BRL" }}</p>
+            <p>Data: {{ appointment.date | date : "short" }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </main>
+</ion-content>
