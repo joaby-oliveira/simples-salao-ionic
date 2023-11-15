@@ -34,15 +34,17 @@
           labelPlacement="floating"
         ></ion-input>
       </ion-item>
-      <ion-label
-        color="danger"
-        *ngIf="
+      <span class="p-4 block">
+        <ion-label
+          color="danger"
+          *ngIf="
           signupForm.errors?.['confirmedValidator'] &&
           signupForm.touched
-        "
-      >
-        {{signupForm.errors?.['confirmedValidator']}}
-      </ion-label>
+          "
+        >
+          {{signupForm.errors?.['confirmedValidator']}}
+        </ion-label>
+      </span>
       <ion-button (click)="signup()" expand="full"> Criar conta </ion-button>
     </form>
   </main>
