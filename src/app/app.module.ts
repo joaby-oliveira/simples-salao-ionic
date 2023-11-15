@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { LoginModule } from './features/login/login.module';
 import { SignupModule } from './features/signup/signup.module';
 import { StartModule } from './features/start/start.module';
-
+import { LayoutModule } from './features/layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,8 +32,16 @@ import { StartModule } from './features/start/start.module';
         path: 'inicio',
         loadChildren: () =>
           import('./features/start/start.module').then((m) => m.StartModule),
-      }
+      },
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('./features/layout/layout-routing.module').then(
+            (m) => m.LayoutRoutingModule
+          ),
+      },
     ]),
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
