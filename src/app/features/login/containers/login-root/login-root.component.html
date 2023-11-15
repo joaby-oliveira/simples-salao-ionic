@@ -1,1 +1,35 @@
-<p>login-root works!</p>
+<ion-content>
+  <main class="p-8">
+    <img
+      src="/assets/logo.png"
+      alt="Welcome back!"
+      width="100"
+      class="mx-auto"
+    />
+    <h1 class="text-center text-xl mt-8">Bem-vindo de volta</h1>
+    <h2 class="text-center text-base font-normal mt-4">
+      Volte a agendar seus serviços!
+    </h2>
+
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+      <ion-item>
+        <ion-label>E-mail</ion-label>
+        <ion-input type="email" name="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Senha</ion-label>
+        <ion-input type="password" name="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-button expand="full" type="submit">Login</ion-button>
+    </form>
+    <p class="text-center mt-4">
+      Esqueceu a senha? <a routerLink="" class="underline font-bold">Redefinir senha</a>
+    </p>
+    <p class="text-center mt-16">
+      Ainda não é registrado?
+    </p>
+    <ion-button href="create-account" expand="block" fill="clear">
+      Criar conta
+    </ion-button>
+  </main>
+</ion-content>
