@@ -1,6 +1,7 @@
 import { Component, LOCALE_ID } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { CalendarView } from 'angular-calendar';
+import { AppointmentFormService } from './services/appointment-form.service';
 
 @Component({
   selector: 'app-appointment',
@@ -9,7 +10,10 @@ import { CalendarEvent, CalendarView } from 'angular-calendar';
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
 })
 export class AppointmentComponent {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private appointmentFormService: AppointmentFormService
+  ) {}
 
   view = CalendarView.Day;
   viewDate = new Date();
@@ -43,7 +47,7 @@ export class AppointmentComponent {
     },
   ];
 
-  openRegistrationForm () {
-    console.log('abrir o modal')
+  openRegistrationForm() {
+    this.appointmentFormService.isOpen.next(true);
   }
 }
