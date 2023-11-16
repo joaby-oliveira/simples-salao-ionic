@@ -49,5 +49,10 @@ export class AppointmentComponent {
 
   openRegistrationForm() {
     this.appointmentFormService.isOpen.next(true);
+
+    const professional = this.filterForm.controls.professional.value;
+    if (professional) {
+      this.appointmentFormService.professional.next(professional);
+    }
   }
 }

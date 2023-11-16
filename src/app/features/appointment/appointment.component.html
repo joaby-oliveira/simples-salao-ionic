@@ -32,10 +32,11 @@
     </div>
     <form [formGroup]="filterForm" class="flex items-center gap-4">
       <ion-item class="flex-1 my-4" lines="full">
-        <ion-label>Profissional</ion-label>
+
         <ion-select
           placeholder="Selecione um profissional"
           formControlName="professional"
+          label="Profissional"
         >
           <ion-select-option
             *ngFor="let professional of professionals"
