@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { CalendarView } from 'angular-calendar';
 
 @Component({
   selector: 'app-appointment',
@@ -9,6 +10,7 @@ import { FormBuilder } from '@angular/forms';
 export class AppointmentComponent {
   constructor(private formBuilder: FormBuilder) {}
 
+  view = CalendarView.Day
   viewDate = new Date();
   locale = 'pt';
 

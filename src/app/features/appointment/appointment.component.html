@@ -1,5 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Page Title</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <main class="p-8">
+    <h1 class="text-xl">Agendar serviço</h1>
+    <div class="flex justify-between w-full">
+      <div class="btn btn-primary" mwlCalendarPreviousView>
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </div>
+      <div class="btn btn-outline-secondary" mwlCalendarToday>Today</div>
+      <div class="btn btn-primary" mwlCalendarNextView>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
     <form [formGroup]="filterForm">
       <ion-item>
         <ion-label>Profissional</ion-label>
@@ -31,6 +49,9 @@
         [dayEndHour]="20"
       >
       </mwl-calendar-day-view>
+      <ion-text color="dark">
+        <p>Para agendar um serviço clique nos horários disponíveis</p>
+      </ion-text>
     </ng-template>
     <ion-card class="mt-8 shadow-xl p-4">
       <ion-card-subtitle>Próximos agendamentos</ion-card-subtitle>
