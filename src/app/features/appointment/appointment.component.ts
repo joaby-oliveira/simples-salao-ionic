@@ -1,6 +1,6 @@
 import { Component, LOCALE_ID } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { CalendarView } from 'angular-calendar';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
 
 @Component({
   selector: 'app-appointment',
@@ -42,4 +42,8 @@ export class AppointmentComponent {
       date: new Date(2022, 1, 21, 14, 0),
     },
   ];
+
+  openRegistrationForm () {
+    console.log('abrir o modal')
+  }
 }

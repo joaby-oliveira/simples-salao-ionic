@@ -20,8 +20,8 @@
         <ion-icon name="chevron-forward-outline"></ion-icon>
       </ion-button>
     </div>
-    <form [formGroup]="filterForm">
-      <ion-item>
+    <form [formGroup]="filterForm" class="flex items-center gap-4">
+      <ion-item class="flex-1 my-4" lines="full">
         <ion-label>Profissional</ion-label>
         <ion-select
           placeholder="Selecione um profissional"
@@ -34,6 +34,10 @@
           >
         </ion-select>
       </ion-item>
+      <ion-button (click)="openRegistrationForm()" fill="outline">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Agendar
+      </ion-button>
     </form>
     <div *ngIf="!filterForm.controls.professional.value; else calendar">
       <div class="flex flex-col items-center justify-center p-8 gap-4">
@@ -49,6 +53,7 @@
         [viewDate]="viewDate"
         [dayStartHour]="7"
         [dayEndHour]="20"
+        [locale]="locale"
       >
       </mwl-calendar-day-view>
       <ion-text color="dark">
