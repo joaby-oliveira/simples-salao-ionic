@@ -9,8 +9,11 @@ import { FormBuilder } from '@angular/forms';
 export class AppointmentComponent {
   constructor(private formBuilder: FormBuilder) {}
 
+  viewDate = new Date();
+  locale = 'pt';
+
   filterForm = this.formBuilder.group({
-    professional: [''],
+    professional: ['uuid1'],
   });
 
   professionals = [

@@ -8,6 +8,8 @@ import { LoginModule } from './features/login/login.module';
 import { SignupModule } from './features/signup/signup.module';
 import { StartModule } from './features/start/start.module';
 import { LayoutModule } from './features/layout/layout.module';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [AppComponent],
@@ -42,6 +44,7 @@ import { LayoutModule } from './features/layout/layout.module';
       },
     ]),
     LayoutModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent],

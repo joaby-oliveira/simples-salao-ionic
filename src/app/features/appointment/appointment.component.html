@@ -15,7 +15,7 @@
         </ion-select>
       </ion-item>
     </form>
-    <div *ngIf="!filterForm.controls.professional.value">
+    <div *ngIf="!filterForm.controls.professional.value; else calendar">
       <div class="flex flex-col items-center justify-center p-8 gap-4">
         <h2>Selecione um profissional</h2>
         <img
@@ -24,6 +24,14 @@
         />
       </div>
     </div>
+    <ng-template #calendar>
+      <mwl-calendar-day-view
+        [viewDate]="viewDate"
+        [dayStartHour]="7"
+        [dayEndHour]="20"
+      >
+      </mwl-calendar-day-view>
+    </ng-template>
     <ion-card class="mt-8 shadow-xl p-4">
       <ion-card-subtitle>Próximos agendamentos</ion-card-subtitle>
       <ion-list>
