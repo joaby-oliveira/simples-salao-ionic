@@ -12,7 +12,7 @@ import { FormHeaderComponent } from 'src/app/global/components/form-header/form-
     CommonModule,
     IonicModule,
     RouterModule.forChild([
-      { path: '', component: LoginRootComponent },
+      { path: '', component: LoginRootComponent, pathMatch: 'full' },
     ]),
     ReactiveFormsModule,
     FormHeaderComponent

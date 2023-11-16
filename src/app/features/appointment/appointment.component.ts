@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, LOCALE_ID } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { CalendarView } from 'angular-calendar';
 
@@ -6,13 +6,14 @@ import { CalendarView } from 'angular-calendar';
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.css'],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
 })
 export class AppointmentComponent {
   constructor(private formBuilder: FormBuilder) {}
 
-  view = CalendarView.Day
+  view = CalendarView.Day;
   viewDate = new Date();
-  locale = 'pt';
+  locale = 'pt-BR';
 
   filterForm = this.formBuilder.group({
     professional: ['uuid1'],

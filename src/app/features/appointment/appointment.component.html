@@ -10,13 +10,15 @@
   <main class="p-8">
     <h1 class="text-xl">Agendar serviço</h1>
     <div class="flex justify-between w-full">
-      <div class="btn btn-primary" mwlCalendarPreviousView>
+      <ion-button fill="clear" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
         <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <div class="col-md-4">
+        <h3>{{ viewDate | calendarDate : view + "ViewTitle" : "pt-BR" }}</h3>
       </div>
-      <div class="btn btn-outline-secondary" mwlCalendarToday>Today</div>
-      <div class="btn btn-primary" mwlCalendarNextView>
+      <ion-button fill="clear" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate">
         <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
+      </ion-button>
     </div>
     <form [formGroup]="filterForm">
       <ion-item>

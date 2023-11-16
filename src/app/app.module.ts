@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -8,8 +8,10 @@ import { LoginModule } from './features/login/login.module';
 import { SignupModule } from './features/signup/signup.module';
 import { StartModule } from './features/start/start.module';
 import { LayoutModule } from './features/layout/layout.module';
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { registerLocaleData } from '@angular/common';
+import ptBr from '@angular/common/locales/pt';
+
+registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [AppComponent],
@@ -44,9 +46,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
       },
     ]),
     LayoutModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
