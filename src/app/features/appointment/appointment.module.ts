@@ -5,7 +5,6 @@ import { AppointmentComponent } from './appointment.component';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import {
-  CalendarDayModule,
   CalendarModule,
   DateAdapter,
 } from 'angular-calendar';
