@@ -1,0 +1,43 @@
+<ion-modal [isOpen]="$isOpen | async">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-title>Clientes</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Criar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <form [formGroup]="clientForm">
+        <ion-item>
+          <ion-label position="floating">Nome do serviço</ion-label>
+          <ion-input
+            type="text"
+            formControlName="name"
+            placeholder="Nome do serviço"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Preço</ion-label>
+          <ion-input
+            type="number"
+            formControlName="price"
+            placeholder="Preço"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select formControlName="duration" placeholder="Tempo de duração">
+            <ion-select-option value="30">30 minutos</ion-select-option>
+            <ion-select-option value="60">1 hora</ion-select-option>
+            <ion-select-option value="90">1 hora e meia</ion-select-option>
+            <ion-select-option value="120">2 horas</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>
