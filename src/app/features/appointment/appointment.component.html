@@ -84,18 +84,45 @@
       <div class="flex justify-between items-center">
         <ion-card-subtitle>Agendamentos confirmados</ion-card-subtitle>
         <span class="flex gap-1 items-center">
-          {{ appointments.length }}
+          {{ confirmedAppointments.length }}
+          <ion-icon name="checkmark-circle-outline" color="success"> </ion-icon>
+        </span>
+      </div>
+      <ion-list>
+        <ion-item *ngFor="let confirmedAppointment of confirmedAppointments">
+          <ion-icon name="calendar-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h2>{{ confirmedAppointment.serviceName }}</h2>
+            <p>Preço: {{ confirmedAppointment.price | currency : "BRL" }}</p>
+            <p>Data: {{ confirmedAppointment.date | date : "short" }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-card class="mt-8 shadow-xl p-4" *ngIf="userType === 'professional'">
+      <div class="flex justify-between items-center">
+        <ion-card-subtitle>Agendamentos solicitados</ion-card-subtitle>
+        <span class="flex gap-1 items-center">
+          {{ requestedAppointments.length }}
           <ion-icon name="checkmark-circle-outline"> </ion-icon>
         </span>
       </div>
       <ion-list>
-        <ion-item *ngFor="let appointment of appointments">
+        <ion-item *ngFor="let requestedAppointment of requestedAppointments">
           <ion-icon name="calendar-outline" slot="start"></ion-icon>
           <ion-label>
-            <h2>{{ appointment.serviceName }}</h2>
-            <p>Preço: {{ appointment.price | currency : "BRL" }}</p>
-            <p>Data: {{ appointment.date | date : "short" }}</p>
+            <h2>{{ requestedAppointment.serviceName }}</h2>
+            <p>Preço: {{ requestedAppointment.price | currency : "BRL" }}</p>
+            <p>Data: {{ requestedAppointment.date | date : "short" }}</p>
           </ion-label>
+          <div class="flex items-center gap-4">
+            <ion-button color="success" slot="end">
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" slot="end">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
+          </div>
         </ion-item>
       </ion-list>
     </ion-card>

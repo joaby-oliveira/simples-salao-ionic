@@ -64,6 +64,19 @@ export class AppointmentComponent {
     },
   ];
 
+  requestedAppointments = [
+    {
+      serviceName: 'Corte de cabelo',
+      price: 50,
+      date: new Date(2022, 1, 20, 10, 30),
+    },
+    {
+      serviceName: 'Barba',
+      price: 30,
+      date: new Date(2022, 1, 21, 14, 0),
+    },
+  ];
+
   openRegistrationForm() {
     this.appointmentFormService.isOpen.next(true);
 
