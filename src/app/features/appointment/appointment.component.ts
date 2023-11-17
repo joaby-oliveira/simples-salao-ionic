@@ -2,6 +2,7 @@ import { Component, LOCALE_ID } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { CalendarView } from 'angular-calendar';
 import { AppointmentFormService } from './services/appointment-form.service';
+import { UserService } from 'src/app/global/services/user.service';
 
 @Component({
   selector: 'app-appointment',
@@ -12,8 +13,11 @@ import { AppointmentFormService } from './services/appointment-form.service';
 export class AppointmentComponent {
   constructor(
     private formBuilder: FormBuilder,
-    private appointmentFormService: AppointmentFormService
+    private appointmentFormService: AppointmentFormService,
+    private userService: UserService
   ) {}
+
+  userType = this.userService.user.userType;
 
   view = CalendarView.Day;
   viewDate = new Date();
@@ -35,6 +39,19 @@ export class AppointmentComponent {
   ];
 
   appointments = [
+    {
+      serviceName: 'Corte de cabelo',
+      price: 50,
+      date: new Date(2022, 1, 20, 10, 30),
+    },
+    {
+      serviceName: 'Barba',
+      price: 30,
+      date: new Date(2022, 1, 21, 14, 0),
+    },
+  ];
+
+  confirmedAppointments = [
     {
       serviceName: 'Corte de cabelo',
       price: 50,

@@ -9,6 +9,6 @@ export class UserService {
     idUser: 'uuid1',
     idClient: 'uuid1',
     idProfessional: undefined,
-    userType: 'client',
+    userType: 'professional',
   };
 }

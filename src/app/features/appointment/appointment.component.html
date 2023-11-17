@@ -66,12 +66,28 @@
         [locale]="locale"
       >
       </mwl-calendar-day-view>
-      <ion-text color="dark">
-        <p>Para agendar um serviço clique nos horários disponíveis</p>
-      </ion-text>
     </ng-template>
-    <ion-card class="mt-8 shadow-xl p-4">
+    <ion-card class="mt-8 shadow-xl p-4" *ngIf="userType === 'client'">
       <ion-card-subtitle>Próximos agendamentos</ion-card-subtitle>
+      <ion-list>
+        <ion-item *ngFor="let appointment of appointments">
+          <ion-icon name="calendar-outline" slot="start"></ion-icon>
+          <ion-label>
+            <h2>{{ appointment.serviceName }}</h2>
+            <p>Preço: {{ appointment.price | currency : "BRL" }}</p>
+            <p>Data: {{ appointment.date | date : "short" }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-card class="mt-8 shadow-xl p-4" *ngIf="userType === 'professional'">
+      <div class="flex justify-between items-center">
+        <ion-card-subtitle>Agendamentos confirmados</ion-card-subtitle>
+        <span class="flex gap-1 items-center">
+          {{ appointments.length }}
+          <ion-icon name="checkmark-circle-outline"> </ion-icon>
+        </span>
+      </div>
       <ion-list>
         <ion-item *ngFor="let appointment of appointments">
           <ion-icon name="calendar-outline" slot="start"></ion-icon>
