@@ -34,7 +34,8 @@ export class HomeRootComponent {
     },
   ];
   pages = [
-    { name: 'Serviços', href: '' },
-    { name: 'Clientes', href: '' },
+    { name: 'Serviços', href: '/services' },
+    { name: 'Clientes', href: '/clients' },
+    { name: 'Profissionais', href: '/professionals' },
   ];
 }

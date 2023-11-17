@@ -41,6 +41,13 @@ const routes: Routes = [
             (m) => m.PreferencesModule
           ),
       },
+      {
+        path: 'professionals',
+        loadChildren: () =>
+          import('../professional/professional.module').then(
+            (m) => m.ProfessionalModule
+          ),
+      },
     ],
   },
   {

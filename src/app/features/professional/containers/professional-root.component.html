@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profissionais</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <main class="p-8">
+    <ion-card class="mt-8 shadow-xl p-4">
+      <ion-card-header>
+        <ion-card-subtitle>Serviços registrados</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let professional of professionals">
+            <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+            <ion-label>
+              <h2>{{ professional.name }}</h2>
+            </ion-label>
+            <ion-buttons slot="end">
+              <ion-button
+                (click)="presentPopover($event, professional.idProfessional)"
+              >
+                <ion-icon name="ellipsis-vertical"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+        <ion-button
+          expand="full"
+          color="primary"
+          (click)="openProfessionalForm()"
+        >
+          <ion-icon name="add-outline" slot="start"></ion-icon>
+          Adicionar profissional
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </main>
+</ion-content>
