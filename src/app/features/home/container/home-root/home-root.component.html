@@ -3,11 +3,11 @@
     <header class="flex justify-start items-center w-full">
       <img src="/assets/logo.png" alt="Logo Simples Salão" width="75" />
       <div class="flex flex-col gap-2">
-        <h1 class="font-bold text-2xl m-0">Olá {{ userName }},</h1>
+        <h1 class="font-bold text-2xl m-0">Olá {{ name }},</h1>
         <h2 class="font-normal text-2xl m-0">seja bem-vindo(a)</h2>
       </div>
     </header>
-    <ion-card class="mt-8 shadow-xl p-4">
+    <ion-card class="mt-8 shadow-xl p-4" *ngIf="userType === 'professional'">
       <ion-card-subtitle>Faturado hoje</ion-card-subtitle>
       <ion-card-content>
         <h1 class="text-xl font-bold">{{ 23200 | currency : "BRL" }}</h1>
@@ -42,6 +42,16 @@
           <ion-label>
             <h2>{{ service.name }}</h2>
             <p>Preço: {{ service.price | currency : "BRL" }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+    <ion-card class="mt-8 shadow-xl p-4" *ngIf="userType === 'professional'">
+      <ion-list>
+        <ion-item *ngFor="let page of pages" [routerLink]="page.href">
+          <ion-icon name="arrow-forward" slot="end"></ion-icon>
+          <ion-label>
+            <h2>{{ page.name }}</h2>
           </ion-label>
         </ion-item>
       </ion-list>

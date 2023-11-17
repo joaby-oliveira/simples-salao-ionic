@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/global/services/user.service';
 
 @Component({
   templateUrl: './home-root.component.html',
   styleUrls: ['./home-root.component.css'],
 })
 export class HomeRootComponent {
-  userType = 'client'
-  userName = 'John Doe';
-  professionals = [
-    'Cláudio Junior',
-    'Emilly Mota',
-    'Robson Martins',
-  ]
+  constructor(public userService: UserService) {}
+
+  userType = this.userService.user.userType;
+  name = this.userService.user.name;
+  professionals = ['Cláudio Junior', 'Emilly Mota', 'Robson Martins'];
   appointments = [
     {
       serviceName: 'Corte de cabelo',
@@ -33,5 +32,9 @@ export class HomeRootComponent {
       name: 'Barba',
       price: 30,
     },
+  ];
+  pages = [
+    { name: 'Serviços', href: '' },
+    { name: 'Clientes', href: '' },
   ];
 }
