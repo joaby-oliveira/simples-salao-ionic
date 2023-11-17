@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Preferências</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <main class="p-8">
+    <form [formGroup]="companyForm">
+      <ion-item lines="full">
+        <ion-input
+          formControlName="companyName"
+          label="Nome da empresa"
+          labelPlacement="floating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-input
+          formControlName="companyCnpj"
+          label="CNPJ"
+          labelPlacement="floating"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-input
+          formControlName="hoursInterval"
+          label="Horário de atendimento"
+          labelPlacement="floating"
+          placeholder="Intervalo de horas em horas"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-input
+          formControlName="minutesInterval"
+          label="Minuto de atendimento"
+          labelPlacement="floating"
+          placeholder="Intervalos de minutos em minutos"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" type="submit" (click)="savePreferences()">Salvar configurações</ion-button>
+    </form>
+  </main>
+</ion-content>

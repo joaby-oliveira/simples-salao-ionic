@@ -34,6 +34,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../client/client.module').then((m) => m.ClientModule),
       },
+      {
+        path: 'preferences',
+        loadChildren: () =>
+          import('../preferences/preferences.module').then(
+            (m) => m.PreferencesModule
+          ),
+      },
     ],
   },
   {
