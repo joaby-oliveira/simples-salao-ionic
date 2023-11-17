@@ -9,4 +9,5 @@ export class AppointmentFormService {
     start: string;
     end: string;
   }> = new Subject();
+  date: BehaviorSubject<any> = new BehaviorSubject(new Date());
 }

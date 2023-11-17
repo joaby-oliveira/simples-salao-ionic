@@ -53,6 +53,7 @@ export class AppointmentComponent {
     const professional = this.filterForm.controls.professional.value;
     if (professional) {
       this.appointmentFormService.professional.next(professional);
+      this.appointmentFormService.date.next(this.viewDate);
     }
   }
 }

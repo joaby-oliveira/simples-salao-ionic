@@ -14,14 +14,17 @@ export class AppointmentFormComponent {
     private formBuilder: FormBuilder
   ) {
     this.$professional.subscribe((professional) => {
-      console.log(professional);
       this.appointmentForm.controls.professional.setValue(professional);
+    });
+    this.$date.subscribe((date) => {
+      console.log(date)
     });
   }
 
   $isOpen = this.appointmentFormService.isOpen;
   $professional = this.appointmentFormService.professional;
   $time = this.appointmentFormService.time;
+  $date = this.appointmentFormService.date;
 
   professionals = [
     {
@@ -38,7 +41,7 @@ export class AppointmentFormComponent {
     'This modal example uses triggers to automatically open a modal when the button is clicked.';
 
   appointmentForm = this.formBuilder.group({
-    professional: [''],
+    professional: [{value: '', disabled: true}],
     startTime: [''],
     endTime: [''],
   });
@@ -49,5 +52,6 @@ export class AppointmentFormComponent {
 
   confirm() {
     this.appointmentFormService.isOpen.next(false);
+    console.log('solicitar serviço')
   }
 }
