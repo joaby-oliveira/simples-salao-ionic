@@ -24,6 +24,11 @@ const routes: Routes = [
             (m) => m.AppointmentModule
           ),
       },
+      {
+        path: 'services',
+        loadChildren: () =>
+          import('../service/service.module').then((m) => m.ServiceModule),
+      },
     ],
   },
   {

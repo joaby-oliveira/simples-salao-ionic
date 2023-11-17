@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Serviços</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <main class="p-8">
+    <ion-card class="mt-8 shadow-xl p-4">
+      <ion-card-header>
+        <ion-card-subtitle>Serviços registrados</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let service of services">
+            <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+            <ion-label>
+              <h2>{{ service.name }}</h2>
+              <p>Preço: {{ service.price | currency : "BRL" }}</p>
+            </ion-label>
+            <ion-buttons slot="end">
+              <ion-button (click)="presentPopover($event, service.idService)">
+                <ion-icon name="ellipsis-vertical"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-list>
+        <ion-button expand="full" color="primary"
+          >Adicionar novo serviço</ion-button
+        >
+      </ion-card-content>
+    </ion-card>
+  </main>
+</ion-content>
