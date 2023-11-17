@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopOverComponent } from 'src/app/global/components/pop-over/pop-over.component';
+import { ServiceFormService } from '../../services/service-form.service';
 
 @Component({
   templateUrl: './service-root.component.html',
 })
 export class ServiceRootComponent {
-  constructor(private popoverController: PopoverController) {}
+  constructor(
+    private popoverController: PopoverController,
+    private serviceFormService: ServiceFormService
+  ) {}
 
   async presentPopover(ev: any, idService: string) {
     const popover = await this.popoverController.create({
@@ -47,5 +51,9 @@ export class ServiceRootComponent {
     return () => {
       console.log('delete service', idService);
     };
+  }
+
+  openServiceForm() {
+    this.serviceFormService.isOpen.next(true);
   }
 }
