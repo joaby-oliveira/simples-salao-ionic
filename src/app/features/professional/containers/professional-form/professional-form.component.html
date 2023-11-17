@@ -5,12 +5,36 @@
         <ion-buttons slot="start">
           <ion-button (click)="cancel()">Cancelar</ion-button>
         </ion-buttons>
-        <ion-title>Clientes</ion-title>
+        <ion-title>Profissionais</ion-title>
         <ion-buttons slot="end">
           <ion-button (click)="confirm()" [strong]="true">Criar</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">aa </ion-content>
-  </ng-template></ion-modal
->
+    <ion-content class="ion-padding">
+      <form [formGroup]="formProfissional">
+        <ion-item>
+          <ion-input
+            formControlName="nomeProfissional"
+            label="Nome"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            formControlName="emailProfissional"
+            type="email"
+            label="E-mail"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            formControlName="celularProfissional"
+            type="celular"
+            label="Celular"
+          ></ion-input>
+        </ion-item>
+      </form>
+    </ion-content> </ng-template
+></ion-modal>

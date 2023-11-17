@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ProfessionalFormService } from '../../services/professional-form.service';
 
 @Component({
@@ -15,8 +15,10 @@ export class ProfessionalFormComponent {
 
   $isOpen = this.professionalFormService.isOpen;
 
-  professionalForm = this.formBuilder.group({
-    name: [''],
+  formProfissional = this.formBuilder.group({
+    nomeProfissional: ['', Validators.required],
+    emailProfissional: ['', [Validators.required, Validators.email]],
+    celularProfissional: ['', Validators.required],
   });
 
   cancel() {
