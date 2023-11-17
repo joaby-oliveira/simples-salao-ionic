@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ProfessionalFormService } from '../services/professional-form.service';
+import { ProfessionalFormService } from '../../services/professional-form.service';
 import { PopOverComponent } from 'src/app/global/components/pop-over/pop-over.component';
 import { PopoverController } from '@ionic/angular';
 
