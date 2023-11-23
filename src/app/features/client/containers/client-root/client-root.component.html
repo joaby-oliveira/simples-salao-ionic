@@ -14,12 +14,12 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-list>
+        <ion-list *ngIf="clientService.clients$ | async as clients">
           <ion-item *ngFor="let client of clients">
-            <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+            <ion-icon name="person-outline" slot="start"></ion-icon>
             <ion-label>
               <h2>{{ client.name }}</h2>
-              <p>Preço: {{ client.price | currency : "BRL" }}</p>
+              <p>{{ client.email }}</p>
             </ion-label>
             <ion-buttons slot="end">
               <ion-button (click)="presentPopover($event, client.idClient)">

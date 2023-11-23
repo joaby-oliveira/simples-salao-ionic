@@ -1,16 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopOverComponent } from 'src/app/global/components/pop-over/pop-over.component';
 import { ClientFormService } from '../../services/client-form.service';
+import { ClientApi } from '../../api/client.api';
+import { ClientService } from '../../services/client.service';
+import { map } from 'rxjs';
 
 @Component({
   templateUrl: './client-root.component.html',
 })
-export class ClientRootComponent {
+export class ClientRootComponent implements OnInit {
   constructor(
     private popoverController: PopoverController,
-    private clientFormService: ClientFormService
+    private clientFormService: ClientFormService,
+    private clientApi: ClientApi,
+    public clientService: ClientService
   ) {}
+
+  ngOnInit(): void {
+    this.clientService.clients$ = this.clientApi
+      .getClients()
+      .pipe(map((response) => response.result));
+  }
 
   async presentPopover(ev: any, idClient: string) {
     const popover = await this.popoverController.create({
@@ -24,23 +35,7 @@ export class ClientRootComponent {
     });
     return await popover.present();
   }
-  clients = [
-    {
-      idClient: 'uuid1',
-      name: 'Client 1',
-      price: 100,
-    },
-    {
-      idClient: 'uuid2',
-      name: 'Client 2',
-      price: 200,
-    },
-    {
-      idClient: 'uuid3',
-      name: 'Client 3',
-      price: 300,
-    },
-  ];
+
   updateClient(idClient: string) {
     return () => {
       console.log('update client', idClient);
