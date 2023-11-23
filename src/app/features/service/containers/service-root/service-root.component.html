@@ -14,7 +14,7 @@
       </ion-card-header>
 
       <ion-card-content>
-        <ion-list *ngIf="services$ | async as services">
+        <ion-list *ngIf="serviceService.services$| async as services">
           <ion-item *ngFor="let service of services">
             <ion-icon name="briefcase-outline" slot="start"></ion-icon>
             <ion-label>

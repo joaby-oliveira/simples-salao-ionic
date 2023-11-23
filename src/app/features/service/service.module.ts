@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceFormService } from './services/service-form.service';
 import { ServiceApi } from './api/service.api';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceService } from './services/service.service';
 
 const routes: Routes = [{ path: '', component: ServiceRootComponent }];
 
@@ -20,6 +21,6 @@ const routes: Routes = [{ path: '', component: ServiceRootComponent }];
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServiceFormService, ServiceApi],
+  providers: [ServiceFormService, ServiceApi, ServiceService],
 })
 export class ServiceModule {}

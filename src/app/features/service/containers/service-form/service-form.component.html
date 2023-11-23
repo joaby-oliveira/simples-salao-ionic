@@ -14,28 +14,40 @@
     <ion-content class="ion-padding">
       <form [formGroup]="serviceForm">
         <ion-item>
-          <ion-label position="floating">Nome do serviço</ion-label>
           <ion-input
             type="text"
             formControlName="name"
             placeholder="Nome do serviço"
+            label="Nome do serviço"
+            labelPlacement="floating"
           ></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Preço</ion-label>
           <ion-input
             type="number"
             formControlName="price"
             placeholder="Preço"
+            labelPlacement="floating"
+            label="Preço"
           ></ion-input>
         </ion-item>
         <ion-item>
-          <ion-select formControlName="duration" placeholder="Tempo de duração">
-            <ion-select-option value="30">30 minutos</ion-select-option>
-            <ion-select-option value="60">1 hora</ion-select-option>
-            <ion-select-option value="90">1 hora e meia</ion-select-option>
-            <ion-select-option value="120">2 horas</ion-select-option>
-          </ion-select>
+          <ion-input
+            type="number"
+            formControlName="duration"
+            placeholder="Duração"
+            labelPlacement="floating"
+            label="Duração"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="text"
+            formControlName="description"
+            placeholder="Descrição"
+            labelPlacement="floating"
+            label="Descrição"
+          ></ion-input>
         </ion-item>
       </form>
     </ion-content>
