@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 import { ServiceFormComponent } from './containers/service-form/service-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceFormService } from './services/service-form.service';
+import { ServiceApi } from './api/service.api';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [{ path: '', component: ServiceRootComponent }];
 
@@ -16,7 +18,8 @@ const routes: Routes = [{ path: '', component: ServiceRootComponent }];
     RouterModule.forChild(routes),
     IonicModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ServiceFormService],
+  providers: [ServiceFormService, ServiceApi],
 })
 export class ServiceModule {}
