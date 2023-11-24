@@ -1,8 +1,11 @@
-import { Component, LOCALE_ID } from '@angular/core';
+import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { CalendarView } from 'angular-calendar';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { AppointmentFormService } from './services/appointment-form.service';
 import { UserService } from 'src/app/global/services/user.service';
+import { AppointmentApi } from './api/appointment.api';
+import { AppointmentService } from './services/appointment.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-appointment',
@@ -10,12 +13,37 @@ import { UserService } from 'src/app/global/services/user.service';
   styleUrls: ['./appointment.component.css'],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
 })
-export class AppointmentComponent {
+export class AppointmentComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private appointmentFormService: AppointmentFormService,
-    private userService: UserService
+    private userService: UserService,
+    private appointmentService: AppointmentService,
+    private appointmentApi: AppointmentApi
   ) {}
+
+  ngOnInit(): void {
+    this.appointmentApi
+      .getAppointments()
+      .pipe(map((response) => response.result))
+      .subscribe((appointments) =>
+        this.appointmentService.appointments$.next(appointments)
+      );
+
+    this.appointmentService.appointments$.subscribe((appointments) => {
+      this.events = appointments.map<CalendarEvent>((appointment) => ({
+        title: appointment.service.name,
+        start: new Date(appointment.startTime),
+        end: new Date(appointment.endTime),
+        color: {
+          primary: '#1e90ff',
+          secondary: '#D1E8FF',
+        },
+      }));
+    });
+  }
+
+  events!: CalendarEvent[];
 
   userType = this.userService.user.userType;
 
