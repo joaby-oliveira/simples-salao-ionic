@@ -18,4 +18,10 @@ export class ClientApi {
       { client }
     );
   }
+
+  deleteClient(idClient: string) {
+    return this.httpClient.delete<{ message: string }>(
+      `http://localhost:3000/client/${idClient}`
+    );
+  }
 }

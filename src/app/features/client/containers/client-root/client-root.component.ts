@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ToastController } from '@ionic/angular';
 import { PopOverComponent } from 'src/app/global/components/pop-over/pop-over.component';
 import { ClientFormService } from '../../services/client-form.service';
 import { ClientApi } from '../../api/client.api';
@@ -14,7 +14,8 @@ export class ClientRootComponent implements OnInit {
     private popoverController: PopoverController,
     private clientFormService: ClientFormService,
     private clientApi: ClientApi,
-    public clientService: ClientService
+    public clientService: ClientService,
+    private toastController: ToastController
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +45,26 @@ export class ClientRootComponent implements OnInit {
 
   deleteClient(idClient: string) {
     return () => {
-      console.log('delete client', idClient);
+      this.clientApi.deleteClient(idClient).subscribe({
+        next: () => {
+          this.clientService.clients$ = this.clientApi
+            .getClients()
+            .pipe(map((response) => response.result));
+        },
+        error: async (error) => {
+          const toast = await this.toastController.create({
+            message: 'Não foi possível excluir o serviço' + error.error.message,
+            duration: 2000,
+            position: 'top',
+            color: 'danger',
+          });
+
+          await toast.present();
+        },
+        complete: () => {
+          this.popoverController.dismiss();
+        },
+      });
     };
   }
 
