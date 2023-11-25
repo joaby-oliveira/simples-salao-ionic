@@ -6,6 +6,9 @@ import { ProfessionalRootComponent } from './containers/professional-root/profes
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfessionalFormService } from './services/professional-form.service';
 import { ProfessionalFormComponent } from './containers/professional-form/professional-form.component';
+import { ProfessionalApi } from './api/professional.api';
+import { HttpClientModule } from '@angular/common/http';
+import { ProfessionalService } from './services/professional.service';
 
 const routes: Routes = [{ path: '', component: ProfessionalRootComponent }];
 
@@ -16,7 +19,8 @@ const routes: Routes = [{ path: '', component: ProfessionalRootComponent }];
     IonicModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [ProfessionalFormService],
+  providers: [ProfessionalFormService, ProfessionalApi, ProfessionalService],
 })
 export class ProfessionalModule {}

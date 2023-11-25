@@ -16,9 +16,9 @@ export class ProfessionalFormComponent {
   $isOpen = this.professionalFormService.isOpen;
 
   formProfissional = this.formBuilder.group({
-    nomeProfissional: ['', Validators.required],
-    emailProfissional: ['', [Validators.required, Validators.email]],
-    celularProfissional: ['', Validators.required],
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
   });
 
   cancel() {
@@ -27,6 +27,5 @@ export class ProfessionalFormComponent {
 
   confirm() {
     this.professionalFormService.isOpen.next(false);
-    console.log('solicitar serviço');
   }
 }
