@@ -12,10 +12,10 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <form [formGroup]="formProfissional">
+      <form [formGroup]="professionalForm">
         <ion-item>
           <ion-input
-            formControlName="nomeProfissional"
+            formControlName="name"
             label="Nome"
             labelPlacement="floating"
           ></ion-input>
@@ -23,7 +23,7 @@
 
         <ion-item>
           <ion-input
-            formControlName="emailProfissional"
+            formControlName="email"
             type="email"
             label="E-mail"
             labelPlacement="floating"
@@ -32,9 +32,9 @@
 
         <ion-item>
           <ion-input
-            formControlName="celularProfissional"
-            type="celular"
-            label="Celular"
+            formControlName="password"
+            type="password"
+            label="Password"
             labelPlacement="floating"
           ></ion-input>
         </ion-item>

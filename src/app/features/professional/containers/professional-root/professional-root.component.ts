@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProfessionalFormService } from '../../services/professional-form.service';
 import { PopOverComponent } from 'src/app/global/components/pop-over/pop-over.component';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ToastController } from '@ionic/angular';
 import { ProfessionalApi } from '../../api/professional.api';
 import { ProfessionalService } from '../../services/professional.service';
 import { map } from 'rxjs';
@@ -15,7 +15,8 @@ export class ProfessionalRootComponent implements OnInit {
     private professionalFormService: ProfessionalFormService,
     private popoverController: PopoverController,
     private professionalApi: ProfessionalApi,
-    public professionalService: ProfessionalService
+    public professionalService: ProfessionalService,
+    private toastController: ToastController
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +46,26 @@ export class ProfessionalRootComponent implements OnInit {
 
   deleteProfessional(idProfessional: string) {
     return () => {
-      console.log('delete professional', idProfessional);
+      this.professionalApi.deleteProfessional(idProfessional).subscribe({
+        next: () => {
+          this.professionalService.professionals$ = this.professionalApi
+            .getProfessionals()
+            .pipe(map((response) => response.result));
+        },
+        error: async (error) => {
+          const toast = await this.toastController.create({
+            message: 'Não foi possível excluir o serviço' + error.error.message,
+            duration: 2000,
+            position: 'top',
+            color: 'danger',
+          });
+
+          await toast.present();
+        },
+        complete: () => {
+          this.popoverController.dismiss();
+        },
+      });
     };
   }
 
