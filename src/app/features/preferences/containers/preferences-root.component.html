@@ -11,7 +11,7 @@
     <form [formGroup]="companyForm">
       <ion-item lines="full">
         <ion-input
-          formControlName="companyName"
+          formControlName="name"
           label="Nome da empresa"
           labelPlacement="floating"
         ></ion-input>
@@ -19,7 +19,7 @@
 
       <ion-item lines="full">
         <ion-input
-          formControlName="companyCnpj"
+          formControlName="cnpj"
           label="CNPJ"
           labelPlacement="floating"
         ></ion-input>
@@ -27,23 +27,37 @@
 
       <ion-item lines="full">
         <ion-input
-          formControlName="hoursInterval"
-          label="Horário de atendimento"
+          formControlName="timeUnit"
+          label="Duração dos serviços"
           labelPlacement="floating"
-          placeholder="Intervalo de horas em horas"
+          placeholder="Intervalo de minutos em minutos"
         ></ion-input>
       </ion-item>
 
       <ion-item lines="full">
-        <ion-input
-          formControlName="minutesInterval"
-          label="Minuto de atendimento"
-          labelPlacement="floating"
-          placeholder="Intervalos de minutos em minutos"
-        ></ion-input>
+        <ion-datetime
+          formControlName="openingTime"
+          presentation="time"
+          minuteValues="0"
+        >
+          <span slot="title">Horário de abertura</span>
+        </ion-datetime>
       </ion-item>
 
-      <ion-button expand="full" type="submit" (click)="savePreferences()">Salvar configurações</ion-button>
+      <ion-item lines="full">
+        <ion-datetime
+          formControlName="closingTime"
+          presentation="time"
+          minuteValues="0"
+          title="Horário de fechamento"
+        >
+          <span slot="title">Horário de fechamento                                                                                              </span>
+        </ion-datetime>
+      </ion-item>
+
+      <ion-button expand="full" type="submit" (click)="savePreferences()"
+        >Salvar configurações</ion-button
+      >
     </form>
   </main>
 </ion-content>

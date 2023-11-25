@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { PreferencesRootComponent } from './containers/preferences-root.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { PreferencesApi } from './api/preferences.api';
 
 const routes: Routes = [{ path: '', component: PreferencesRootComponent }];
 
@@ -14,6 +16,8 @@ const routes: Routes = [{ path: '', component: PreferencesRootComponent }];
     IonicModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    HttpClientModule,
   ],
+  providers: [PreferencesApi],
 })
 export class PreferencesModule {}
