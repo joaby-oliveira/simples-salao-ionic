@@ -1,27 +1,34 @@
-# SimplesSalaoFront
+# simples-salao-ionic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+## Descrição
+Frontend feito com base na seguinte descrição de tema: O Simples Salão é um aplicativo intuitivo e eficiente projetado para simplificar e aprimorar a gestão de salões de estética e profissionais do setor da beleza, além de fazer a conexão com o cliente final. 
 
-## Development server
+Esse repositório consome uma API REST, que pode ser acessada [aqui](https://github.com/VictorNAGomes/simples-salao-api)
+## Tecnologias utilizadas (principais)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Typescript
+- Angular
+- Ionic
+## Rodando localmente
 
-## Code scaffolding
+Clone o projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+bash
+  git clone https://github.com/joaby-oliveira/simples-salao-ionic
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Entre no diretório do projeto
 
-## Running unit tests
+bash
+  cd simples-salao-ionic
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+Instale as dependências
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+bash
+  npm install
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Finalmente, para executar:
+bash
+  npm start
