@@ -26,6 +26,7 @@ export class AppointmentFormComponent {
   $time = this.appointmentFormService.time;
   $date = this.appointmentFormService.date;
 
+
   professionals = [
     {
       name: 'Robson',

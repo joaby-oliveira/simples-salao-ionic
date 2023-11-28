@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormHeaderComponent } from 'src/app/global/components/form-header/form-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [LoginRootComponent],
@@ -15,7 +16,8 @@ import { FormHeaderComponent } from 'src/app/global/components/form-header/form-
       { path: '', component: LoginRootComponent, pathMatch: 'full' },
     ]),
     ReactiveFormsModule,
-    FormHeaderComponent
+    FormHeaderComponent,
+    HttpClientModule,
   ],
 })
 export class LoginModule {}
